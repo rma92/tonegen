@@ -14,14 +14,20 @@ winmm.def is the output of tiny\_impdef winmm.dll
 
 # Compilation instructions - Tiny C Compiler:
 `tiny\_impedef C:\Windows\SysWOW64\winmm.dll`
+
 (this step can be skipped if you use the provided winmm.def,
 and only needs to be performed once.  On 32-bit Windows, use winmm from System32)
+
 `tcc tonegen.c -lwinmm -o tonegen.exe`
+
 You can also use it as a JIT compiler:
+
 `tcc tonegen.c -lwinmm -run`
+
 (run needs to be the last parameter)
 
 # Compilation instructions - GCC:
+
 `gcc tonegen.c -l winmm -o tonegen.exe`
 
 
