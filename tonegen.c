@@ -236,7 +236,6 @@ void UpdateNotes()
     {
       ++hamming_weight;
       for( j = 0; j < SPS; ++j )
-      //for( j = 0; j < bufs_lengths[i]; ++j )
       {
         ++bufs_cur[i];
         if( bufs_cur[i] >= bufs_lengths[i])
@@ -261,11 +260,12 @@ void UpdateNotes()
   }
   else
   {
+    float inverse_hamming_weight = 1.1f / hamming_weight;
     for( i = 0; i < SPS; ++i )
     {
       //printf(":%d\n", buf_t[i] );
       //out_bufs[ cur_buf ][i]  = buf_t[i] / hamming_weight;
-      out_buf[i] = buf_t[i] / hamming_weight;
+      out_buf[i] = buf_t[i] * inverse_hamming_weight;/// hamming_weight;
     }
   }
   free( buf_t );
